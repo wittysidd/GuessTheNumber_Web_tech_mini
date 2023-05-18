@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>You Lost</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+	<div class="container">
+		<h1 style = "font-weight: bold;color: #3e0202;">You lost!</h1>
+		<h2 style = "font-weight: bold;color: #8d0b0b;">The number was {{ number }}</h2>
+		<h3 style = "font-weight: bold;color: #bc0f0f;">You lost -25 points.</h3>
+        <p>TOTAL POINTS = {{ points }}</p>
+		<a href="{{ url_for('index') }}" class="button">Play Again</a>
+		<a href="{{ url_for('logout') }}" class="button">Logout</a>
+	</div>
+	
+</body>
+</html>

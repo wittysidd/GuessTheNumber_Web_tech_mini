@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+input[type="number"] {
+    font-size: 24px;
+    width: 100px;
+    padding: 10px;
+    margin-top: 20px;
+}
+input[type="submit"] {
+    font-size: 24px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 24px;
+    color : #ffffff
+}
+
+a {
+    font-size: 24px;
+    margin-top: 20px;
+    display: block;
+}
+
+button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as block */
+    font-size: 16px; /* Font size */
+    margin: 20px; /* Add margin */
+    cursor: pointer; /* Add cursor */
+    border-radius: 5px; /* Rounded corners */
+  }
+        h1{
+    font-weight: bold;
+    color: #e30202;
+  }
+
+  h2{
+    font-weight: bold;
+    color: #dff2ea;
+  }
+
+  h3{
+    font-weight: bold;
+    color: #000876;
+    font-size: xx-large;
+  }
+
+/* Styles for play button */
+.play-button {
+    background-color: #008CBA; /* Blue background */
+  }
+  
+  /* Styles for reset button */
+  .reset-button {
+    background-color: #f44336; /* Red background */
+  }
+  /* Styles for hover effect */
+  button:hover {
+    opacity: 0.8; /* Decrease opacity */
+  }
+    body {
+            background-image: url("{{ url_for('static', filename='game.jpg') }}");
+            background-size: cover; /* Adjust as needed */
+            background-repeat: no-repeat; /* Adjust as needed */
+        }
+    </style>
+    
+    <title>Guessing Game</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Guessing Game</h1>
+        <p>Guess a number between 1 and 10</p>
+        <form method="POST" action="{{ url_for('index') }}">
+            <input type="number" name="guess" min="1" max="10" required>
+            <button type="submit" class = "play-button">Guess</button>
+        </form>
+        <form method="POST" action="{{ url_for('reset') }}">
+            <button type="submit" class="reset-button">Reset points</button>
+          </form>          
+        <p>Points: {{ points }}</p>
+    </div>
+</body>
+</html>
